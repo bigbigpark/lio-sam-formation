@@ -1,5 +1,5 @@
 <launch>
-zz
+    <arg name="ns"       default="bigbot"/>
     <arg name="project" default="lio_sam"/>
     
     <!-- Parameters -->
@@ -9,7 +9,9 @@ zz
     <include file="$(find lio_sam)/launch/include/module_loam.launch" />
 
     <!--- Robot State TF -->
-    <include file="$(find lio_sam)/launch/include/module_robot_state_publisher.launch" />
+    <include file="$(find lio_sam)/launch/include/module_robot_state_publisher.launch" >
+        <arg name="ns"       value="$(arg ns)"/>
+    </include>
 
     <!--- Run Navsat -->
     <!-- <include file="$(find lio_sam)/launch/include/module_navsat.launch" /> -->
